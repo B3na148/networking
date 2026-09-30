@@ -2,12 +2,9 @@
 from scapy.all import *
 target = input("Enter target IP: ")
 req = IP(dst=target)/ICMP(type='echo-request')
-count = 0
-print("Sending 4 requests")
-for i in range(4):
-    res = sr1(req, timeout=1)
-    if res and res[ICMP].type == 0:
-        count += 1
-print("Received ",count," reply packages")
+packet_count = int(input("How many packets do you want to send?"))
+print("Sending ", packet_count, "requests")
+ans, unans = sr(req * packet_count, timeout = 2)
+print("Received ",len(ans)," reply packages")
     
         
