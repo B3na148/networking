@@ -1,1 +1,1 @@
-This git is mainly created just to practice using git :)
+This git repo is mainly created just to practice using git :)
